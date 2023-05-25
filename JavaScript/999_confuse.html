@@ -1,58 +1,58 @@
-// 단항 연산자
-// 할당 연산자
-// 3항 연산자
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            console.log("- 0 -");
+            // true와 숫자값의 비교
+            console.log(true == 1);
+            console.log(false == 0);
+            console.log(true === 1);
+            console.log(false === 0);
 
-// https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
-// python에는 해당 문법이 없습니다.
-// a += 1
-// 증감연산, 단항연산
-let a = 10;
-// 두개 다 1을 증가시키는 것입니다.
-a++; // (선할당 후증가)
-++a; // (선증가 후할당)
-+'10'
-console.log('10' + 10)
-console.log(+'10' + 10)
+            console.log("- 1 -");
+            console.log(NaN == NaN);
+            // false!!? NaN만 자기자신이 자기자신이 아닌(?) 특이케이스 - NaN은 1시간 동안 하니 그때 다시 말씀드리겠습니다.
+            console.log(NaN === NaN);
 
-// ++의 방향을 바꿔도 달라지지 않습니다.
-for (let i = 0; i < 10; ++i) {
-  console.log(i);
-}
+            console.log("- 2 -");
+            // true일 것 같은 혼란스러운 녀석들
+            console.log(false == null);
+            console.log(false == NaN);
+            console.log(false == undefined);
 
-// 할당 연산자
-a = 10;
-a += 5;
-a /= 5;
+            console.log("- 3 -");
+            // + 연산자를 이용한 형변환
+            // 암묵적 형변환은 의도를 파악하기 어려워서 사용 자제
+            console.log(+false);
+            // console.log(Number(false));
+            console.log(+true);
+            // console.log(-false);
+            // console.log(-true);
+            console.log(false * 1);
+            console.log(true * 1);
+            console.log(1 + "12"); // string
+            console.log(NaN + ""); // -> "NaN"
+            console.log(Infinity + ""); // -> "Infinity"
+            console.log(true + ""); // -> "true"
+            console.log(false + ""); // -> "false"
+            console.log("12" + 1); // string
+            console.log(+"100" + 10); // number
 
-// 3항 연산자
-// 조건식 ? 조건식이 참일 때 실행될 코드 : 조건식이 거짓일 때 실행될 코드
+            console.log(0 == -0);
 
-let x = true ? 100 : 200;
-let y = false ? 100 : 200; // 200자리에 구문을 하나 더 넣습니다.
+            console.log(+"10" + +"10");
 
-// 아래와 같이 2개가 있을 때
-let aa = false ? 100 : 200;
-let bb = true ? 10 : 20;
-
-false ? 100 : true ? 10 : 20; // 어려우면 괄호
-false ? 100 : true ? 10 : 20;
-
-// 예제(error가 나지 않는 코드, 한글, 영어, 숫자 등등)
-// let sortedData = jsonData.sort((a, b) => (a[key] > b[key] ? -1 : (a[key] < b[key] ? 1 : 0)))
-
-// 아래와 같이 변수할당 없이 바로 3항 연산자로 return 가능합니다.
-function solution(n) {
-  return Math.sqrt(n) === Math.floor(Math.sqrt(n)) ? 1 : 2;
-}
-
-// 3항 연산자의 예제
-// 재귀 함수
-const 팩토리얼 = (num) => (num === 0 ? 1 : num * 팩토리얼(num - 1));
-
-// https://school.programmers.co.kr/learn/courses/30/lessons/120853
-function solution(s) {
-  s = s.split(" ");
-  let arr = [];
-  for (let v of s) v === "Z" ? (arr.length ? arr.pop() : "") : arr.push(v);
-  return arr.reduce((a, v) => a + +v, 0);
-}
+            // 일부러 유지보수하기 어렵게 만들 이유가 아니라면 이렇게 짜시면 X
+            console.log("2" + "2" - "2");
+            console.log("2" + "2");
+            console.log("2" - "2"); // error X, 수학적 연산을 하려고 하는구나! Number로 던져줍니다.
+            console.log("a" - "a");
+        </script>
+    </body>
+</html>

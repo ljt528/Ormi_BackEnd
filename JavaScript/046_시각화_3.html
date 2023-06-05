@@ -6,7 +6,6 @@
 </head>
 <body>
     <canvas id="populationChart"></canvas>
-
     <script>
         fetch('https://raw.githubusercontent.com/ljt528/dataVisualization/main/data.json')
         .then(data => data.json())
@@ -48,11 +47,11 @@
                         }
                     }
                 }
-            })
+            });
         })
         .catch(error => {
             alert('데이터가 읽히지 않습니다.')
         })
-    </script>
+      </script>
 </body>
 </html>

@@ -6,10 +6,31 @@
 </head>
 <body>
     <canvas id="populationChart"></canvas>
+
     <script>
-        fetch('https://raw.githubusercontent.com/ljt528/dataVisualization/main/data.json')
-        .then(data => data.json())
-        .then(data => {
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            const data = [{
+                "지역이름": "서울",
+                "인구순위": 1,
+                "인구": 9411
+            }, {
+                "지역이름": "부산",
+                "인구순위": 2,
+                "인구": 3299
+            }, {
+                "지역이름": "대구",
+                "인구순위": 3,
+                "인구": 2363
+            }, {
+                "지역이름": "인천",
+                "인구순위": 4,
+                "인구": 2961
+            }, {
+                "지역이름": "광주",
+                "인구순위": 5,
+                "인구": 1463
+            }];
 
             const labels = [];
             const populationData = [];
@@ -48,10 +69,24 @@
                     }
                 }
             });
+        });
+    
+        fetch('https://raw.githubusercontent.com/ljt528/dataVisualization/main/data.json')
+        .then(data => data.json())
+        .then(data => {
+            const body = document.querySelector('body')
+            const orderPopulation = document.createElement('ol')
+            for (const i of data) {
+                const local = document.createElement('li')
+                local.innerText = i.지역이름 + i.인구
+                orderPopulation.append(local)
+            }
+            body.append(orderPopulation)
         })
         .catch(error => {
             alert('데이터가 읽히지 않습니다.')
         })
-      </script>
+
+    </script>
 </body>
 </html>

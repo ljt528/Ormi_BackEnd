@@ -8,7 +8,6 @@
     <canvas id="populationChart"></canvas>
 
     <script>
-        
         document.addEventListener("DOMContentLoaded", () => {
             const data = [{
                 "지역이름": "서울",
@@ -70,23 +69,6 @@
                 }
             });
         });
-    
-        fetch('https://raw.githubusercontent.com/ljt528/dataVisualization/main/data.json')
-        .then(data => data.json())
-        .then(data => {
-            const body = document.querySelector('body')
-            const orderPopulation = document.createElement('ol')
-            for (const i of data) {
-                const local = document.createElement('li')
-                local.innerText = i.지역이름 + i.인구
-                orderPopulation.append(local)
-            }
-            body.append(orderPopulation)
-        })
-        .catch(error => {
-            alert('데이터가 읽히지 않습니다.')
-        })
-
     </script>
 </body>
 </html>

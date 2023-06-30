@@ -290,7 +290,7 @@ group by country
 <!-- 말그대로 id컬럼데이터의 갯수를 세느냐 아니면 country컬럼의 갯수를 세느냐의 차이예요.
 만약 country값이 null인 유저가 있다면 
 count(country) 요렇게 세었을때는 해당 유저는 카운트되지 않을거예요.
-count(id)로 해준이유는 id는 모든 유저가 가지고 있는 데이터라서 입니다. -->
+count(id)로 해준 이유는 id는 모든 유저가 가지고 있는 데이터라서 입니다. -->
 
 6. ★★★회원(users) 테이블에서 가입기간(created_at)이 2020년도 1월인 유저의 국가별 성별 가입자 수(country_gender_user_count)를 조회하세요.
 <!-- 

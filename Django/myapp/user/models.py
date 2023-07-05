@@ -39,10 +39,9 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, True, True, **extra_fields)
 
 
-
 class User(AbstractUser):
+    username = None
     email = models.EmailField(unique=True, max_length=255)
-    # null은 0을 포함함, blank는 값이 아예 비어있어도 됨 => 우선은 둘 다 표기해야 함
     name = models.CharField(max_length=50, null=True, blank=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
